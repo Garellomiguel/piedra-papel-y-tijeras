@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-
+''' en este escript probe de usar haar cascade de terceros para identificar y seguir mi mano, no anda de la forma que me gustaria. Hay q probar de hacer una propia'''
 face_cascade = cv2.CascadeClassifier('haarcascade\Hand_haar_cascade.xml')
 
 cap = cv2.VideoCapture(0)
@@ -26,19 +26,8 @@ while True:
         cv2.rectangle(frame, (x,y), (x + w, y+h), (255,0,0), 1)
 
 
-    #ret,thresh2 = cv2.threshold(gray,160,200,cv2.THRESH_BINARY)
-    #th2 = cv2.adaptiveThreshold(gray.copy(),150,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,7,2)
-    #frame_h, frame_w = frame.shape[0:2]
-    #mitad_pantalla = int(frame_w/2)
-    
-    #oi = frame[60:mitad_pantalla-60, 60:mitad_pantalla-60]
-
-    #cv2.rectangle(frame, (60,60), (mitad_pantalla-60,mitad_pantalla-60), (255,0,0), 1)
-    #cv2.rectangle(frame,(mitad_pantalla+60,60), (frame_w-60,mitad_pantalla-60), (0,255,0),1 )
-
-
     cv2.imshow('frame',frame)
-    cv2.imshow('grey',thresh1)
+    cv2.imshow('thresh1',thresh1)
     cv2.imshow('blur',blur)
 
     

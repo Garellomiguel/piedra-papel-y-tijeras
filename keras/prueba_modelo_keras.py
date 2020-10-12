@@ -5,14 +5,14 @@ import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from skimage import transform
 
-
+#se modifican las imagenes de entrada para que puede entrar a la red de la misma forma que fue testeada
 def load(image):
    np_image = np.array(image).astype('float32')/255
    np_image = transform.resize(np_image, (128, 128, 3))
    np_image = np.expand_dims(np_image, axis=0)
    return np_image
 
-
+#cargo el modelo ya entrenado
 clasificador = load_model("clasificador.h5")
 
 #clasificador.summary()
@@ -21,8 +21,7 @@ clases = {0: 'papel',
           1: 'piedra',
           2: 'tijeras'}
 
-test_datagen = ImageDataGenerator(rescale=1./255)
-
+#cargo fotos desde el directorio, las ajusto  y pruebo el modelo
 cwd =os.path.dirname(os.getcwd())
 local_path = os.path.join(cwd , 'fotos-training')
 fotos_path = os.path.join(local_path, 'final')

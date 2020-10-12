@@ -26,8 +26,8 @@ clasificador.add(Dense(units= 3, activation='softmax'))
 #compilacion de la CNN
 clasificador.compile(optimizer= 'adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-#Agregamos early stoping para evitar el overfiting
-#early_stoping = EarlyStopping(monitor='val_loss', patience=7, restore_best_weights=True)
+Agregamos early stoping para evitar el overfiting
+early_stoping = EarlyStopping(monitor='val_loss', patience=7, restore_best_weights=True)
 
 
 #creo los generadores para modificar cada imagen, les agrega zoom, las rota, las escala
@@ -58,6 +58,7 @@ history = clasificador.fit(
         train_generator,
         steps_per_epoch=60,
         verbose = 1,
+        callbacks = [early_stoping]
         epochs=85,
         validation_data=validation_generator,
         validation_steps=10)

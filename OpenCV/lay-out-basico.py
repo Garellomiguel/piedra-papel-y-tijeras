@@ -1,6 +1,8 @@
 import numpy as np
 import cv2
 
+"""primera preba con openCV. Viendo como las funciones bascias"""
+
 cap = cv2.VideoCapture(0)
 
 
@@ -17,7 +19,6 @@ while True:
     
     gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     ret,thresh2 = cv2.threshold(gray,160,200,cv2.THRESH_BINARY)
-    th2 = cv2.adaptiveThreshold(gray.copy(),150,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,7,2)
     frame_h, frame_w = frame.shape[0:2]
     mitad_pantalla = int(frame_w/2)
     

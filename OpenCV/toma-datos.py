@@ -4,6 +4,8 @@ import time
 import datetime
 import os
 
+"""Programa para la toma de imagenes de forma de poder usarlas en el modelo"""
+
 
 dir_name = 'fotos-training'
 abs_path = os.path.join(os.getcwd(),dir_name)
@@ -21,8 +23,6 @@ change_res(640,480)
 i= 800
 
 now = datetime.datetime.now()
-finish_time = now + datetime.timedelta(seconds=10)
-#datetime.datetime.now() < finish_time 
 
 while True :
 
@@ -66,11 +66,8 @@ while True :
     time.sleep(0.1)
     cv2.putText(frame, f'{ppt}', (50,50), fontFace= cv2.FONT_HERSHEY_COMPLEX, fontScale= 1, color= (0,0,255))
     i = i+1
-    #cv2.rectangle(frame, (60,60), (mitad_pantalla-60,mitad_pantalla-60), (255,0,0), 1)
-    #cv2.rectangle(frame,(mitad_pantalla+60,60), (frame_w-60,mitad_pantalla-60), (0,255,0),1 )
     
     
-
     cv2.imshow('derecha',roi_izquierda)
     cv2.imshow('frame',frame)
     
