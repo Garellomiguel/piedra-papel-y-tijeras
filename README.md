@@ -1,0 +1,1 @@
+Juego de piedra papel o tijeras realizado a travez de openCV y Keras. En una primera instancia intente llevar a cabo la clasificacion de las imagenes con un modelo de VSM usando los momentos HU de las mismas pero no funciono debido a la gran variacion de estos momentos dependiendo de la luz y otras condiciones
